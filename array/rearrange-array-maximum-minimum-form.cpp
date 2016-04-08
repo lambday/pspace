@@ -16,11 +16,9 @@
  * Expected time complexity is O(n).
  */
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <lib/pspace.hpp>
 
-using namespace std;
+using namespace pspace;
 
 void rearrange(vector<int>& a)
 {
@@ -43,14 +41,6 @@ void rearrange(vector<int>& a)
 		}
 	}
 	for_each(a.begin(), a.end(), [](int& val) { val *= -1; });
-}
-
-template <class T>
-void display(T& a)
-{
-	cout << "[";
-	for_each(a.begin(), a.end(), [](int& val) { cout << val << " "; });
-	cout << "]" << endl;
 }
 
 int main()
