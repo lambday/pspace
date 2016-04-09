@@ -26,11 +26,13 @@
 
 using namespace pspace;
 
-int count_subarrays(vector<int>& a)
+template <class T, int N>
+int count_subarrays(T const (&a)[N])
 {
+	size_t size = end(a) - begin(a);
 	int count = 0;
 	int current_increasing_subarray_len = 1;
-	for (size_t i = 1; i < a.size(); ++i)
+	for (size_t i = 1; i < size; ++i)
 	{
 		if (a[i-1] < a[i])
 			count += current_increasing_subarray_len++;
@@ -42,14 +44,15 @@ int count_subarrays(vector<int>& a)
 
 int main()
 {
-	vector<int> a = {1,2,2,4};
+	int a[] = {1,2,2,4};
 	display(a);
 	cout << count_subarrays(a) << endl;
-	a = {1,2,3,4};
-	display(a);
-	cout << count_subarrays(a) << endl;
-	a = {6,5,1,3,4,2,1,2,4,8,7};
-	display(a);
-	cout << count_subarrays(a) << endl;
+	int b[] = {1,2,3,4};
+	display(b);
+	cout << count_subarrays(b) << endl;
+	int c[] = {6,5,1,3,4,2,1,2,4,8,7};
+	display(c);
+	cout << count_subarrays(c) << endl;
+	cout << count_subarrays({4,3,2,1}) << endl;
 	return 0;
 }
