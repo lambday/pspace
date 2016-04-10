@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <type_traits>
+#include <functional>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ struct scalar_trait
 	using value_type = typename T::value_type;
 };
 
-template <> template <typename T, int N>
+template <> template <typename T, size_t N>
 struct scalar_trait<T[N]>
 {
 	using value_type = T;
